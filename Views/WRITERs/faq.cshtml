@@ -1,0 +1,258 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>上传新作品</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <link href="~/个人主页-作者/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/个人主页-作者/css/bootstrap-responsive.min.css" rel="stylesheet" />
+    <link href="~/个人主页-作者/css/font-awesome.css" rel="stylesheet" />
+
+    <link href="~/个人主页-作者/css/adminia.css" rel="stylesheet" />
+    <link href="~/个人主页-作者/css/adminia-responsive.css" rel="stylesheet" />
+
+    <link href="~/个人主页-作者/css/pages/dashboard.css" rel="stylesheet" />
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+    <div class="navbar navbar-fixed-top">
+
+        <div class="navbar-inner">
+
+            <div class="container">
+
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+
+                <a class="brand" href="../首页/index.html">小说网站</a>@*未修改,跳转至首页*@
+
+                <div class="nav-collapse">
+
+                    <ul class="nav pull-right">
+                        <li>
+                        </li>
+
+                        <li class="divider-vertical"></li>
+
+                    </ul>
+
+                </div> <!-- /nav-collapse -->
+
+            </div> <!-- /container -->
+
+        </div> <!-- /navbar-inner -->
+
+    </div> <!-- /navbar -->
+
+
+
+
+    <div id="content">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span3">
+
+                    <div class="account-container">
+
+                        <div class="account-avatar">
+                            <img src="~/个人主页-作者/img/head.png" alt="" class="thumbnail" />
+                        </div> <!-- /account-avatar -->
+
+                        <div class="account-details">
+                            @{
+                                var level = Convert.ToInt32(Html.ViewBag.level);
+                                var fan = Convert.ToInt32(Html.ViewBag.fans);
+                                var monthticket = Convert.ToInt32(Html.ViewBag.month);
+                                <span class="account-name">@Html.ViewBag.name</span>
+                                <span class="account-role">等级:@level</span>
+
+                                <span class="account-actions">
+                                    <a href="javascript:;">粉丝数:@fan</a> |
+                                    <a href="javascript:;">月票数:@monthticket</a>
+                                </span>
+
+                            }
+                        </div> <!-- /account-details -->
+                    </div> <!-- /account-container -->
+
+                    <hr />
+
+                    <ul id="main-nav" class="nav nav-tabs nav-stacked">
+
+                        <li>
+                            <a href="~/WRITERs">
+                                <i class="icon-home"></i>
+                                我的作品
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a href="./faq.html">
+                                @*未修改，跳转至当前页面*@
+                            <i class="icon-pushpin"></i>
+                            上传新内容
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="~/WRITERs/Account">
+                            <i class="icon-user"></i>
+                            修改个人信息
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../登录，注册/登录.html">
+                            @*未修改,跳转至登录页面*@
+                        <i class="icon-lock"></i>
+                        注销
+                    </a>
+                </li>
+
+            </ul>
+            <hr />
+            <div class="sidebar-extra">
+                <p>中国互联网违法和不良信息举报中心在此提醒，举报中心工作人员从来不会使用个人手机与网民联系，不会以任何理由对您手机进行停机操作，更不会要求您转账汇款缴纳保证金、手续费。</p>
+            </div> <!-- .sidebar-extra -->
+            <br />
+
+        </div> <!-- /span3 -->
+        <div class="span9">
+            <h1 class="page-title">
+                <i class="icon-home"></i>
+                上传新内容
+            </h1>
+            <div class="row-fluid sortable">
+                <div class="box span12">
+                    <div class="box-content">
+                        <div class="widget-content">
+                            <div class="tabbable">
+                                <ul class="nav nav-tabs">
+                                    <li class="active">
+                                        <a href="#1" data-toggle="tab">上传新作品</a>
+                                    </li>
+                                    <li><a href="#2" data-toggle="tab">上传新章节</a></li>
+                                </ul>
+                                <br />
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="1">
+                                        <form id="edit-profile" class="form-horizontal" />
+                                        <form class="form-horizontal">
+                                            <fieldset>
+                                                <div class="control-group">
+                                                    <br>
+                                                    <br>
+                                                    <label class="control-label" for="typeahead">名称 </label>
+                                                    <div class="controls">
+                                                        <input type="text" class="span6 typeahead" id="typeahead" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <label class="control-label" for="date01">选择标签</label>
+                                                    <div class="ui-select span4">
+                                                        <select>
+                                                            <option value="YQ" />古代言情
+                                                            <option value="TY" />游戏体育
+                                                            <option value="WX" />武侠仙侠
+                                                            <option value="QH" />奇幻灵异
+                                                            <option value="JS" />军事历史
+                                                            <option value="DS" />都市短篇
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <br>
+                                                    <label class="control-label" for="fileInput">链接文件</label>
+                                                    <div class="controls">
+                                                        <input class="input-file uniform_on" id="fileInput" type="file"><br>
+                                                    </div>
+                                                </div>
+                                                <div class="control-group">
+                                                    <br>
+                                                    <label class="control-label" for="textarea2">文本书写</label>
+                                                    <div class="controls">
+                                                        <textarea class="cleditor" id="textarea2" rows="4"></textarea><br><br>
+                                                    </div>
+                                                </div>
+                                                <div class="form-actions">
+                                                    <button type="submit" class="btn btn-primary">保存</button>
+                                                    <button type="reset" class="btn">取消</button>
+                                                </div>
+                                            </fieldset>
+                                        </form>
+
+                                        </form>
+                                    </div>
+                                    <div class="tab-pane" id="2">
+                                        <form id="edit-profile" class="form-horizontal" />
+                                        <div class="control-group">
+                                            <br>
+                                            <br>
+                                            <label class="control-label" for="typeahead">章节名</label>
+                                            <div class="controls">
+                                                <input type="text" class="span6 typeahead" id="typeahead" data-provide="typeahead" data-items="4" data-source='["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Dakota","North Carolina","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"]'>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="date01">添加到的书名</label>
+                                            <div class="controls">
+                                                <input type="text" class="input-xlarge datepicker" id="date01" value="我的山河">
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <br>
+                                            <label class="control-label" for="fileInput">链接文件</label>
+                                            <div class="controls">
+                                                <input class="input-file uniform_on" id="fileInput" type="file"><br>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <br>
+                                            <label class="control-label" for="textarea2">文本书写</label>
+                                            <div class="controls">
+                                                <textarea class="cleditor" id="textarea2" rows="4"></textarea><br><br>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-primary">保存</button>
+                                            <button type="reset" class="btn">取消</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div> <!-- /span9 -->
+                            </div>
+                        </div> <!-- /span9 -->
+                    </div> <!-- /row -->
+                </div> <!-- /container -->
+            </div> <!-- /content -->
+            <!-- Le javascript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+            <script src="~/个人主页-作者/js/jquery-1.7.2.min.js"></script>
+            <script src="~/个人主页-作者/js/excanvas.min.js"></script>
+            <script src="~/个人主页-作者/js/jquery.flot.js"></script>
+            <script src="~/个人主页-作者/js/jquery.flot.pie.js"></script>
+            <script src="~/个人主页-作者/js/jquery.flot.orderBars.js"></script>
+            <script src="~/个人主页-作者/js/jquery.flot.resize.js"></script>
+
+
+            <script src="~/个人主页-作者/js/bootstrap.js"></script>
+            <script src="~/个人主页-作者/js/charts/bar.js"></script>
+
+</body>
+</html>
+

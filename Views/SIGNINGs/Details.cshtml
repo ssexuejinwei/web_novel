@@ -1,0 +1,34 @@
+﻿@model WebApplication1.Models.SIGNING
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SIGNING</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.STARTTIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STARTTIME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ENDTIME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENDTIME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

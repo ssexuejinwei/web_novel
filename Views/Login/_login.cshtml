@@ -1,0 +1,84 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html class="login-bg">
+<head>
+    <title>Detail Admin - Sign in</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- bootstrap -->
+    <link href="~/登录，注册/css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="~/登录，注册/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/登录，注册/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="~/登录，注册/css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="~/登录，注册/css/elements.css" />
+    <link rel="stylesheet" type="text/css" href="~/登录，注册/css/icons.css" />
+
+    <!-- libraries -->
+    <link rel="stylesheet" type="text/css" href="~/登录，注册/css/lib/font-awesome.css" />
+
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="~/登录，注册/css/compiled/signin.css" type="text/css" media="screen" />
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body style="background-color: #FEDFE1">
+    <form action="~/Login/_login" method="post">
+        @Html.AntiForgeryToken()
+        <!-- background switcher -->
+        <div class="row-fluid login-wrapper">
+            <a href="index.html"></a>
+
+            <div class="span4 box">
+                <div class="content-wrap">
+                    <h6>登录</h6>
+                    <input class="span12" name="ID" type="text" placeholder="账号" />
+                    <input class="span12" name="Password" type="password" placeholder="密码" />
+                    <div class="remember">
+                        <input id="remember-me" type="checkbox" />
+                        <label for="remember-me">记住我</label>
+                    </div>
+                    <input type="submit" value="登录" class="btn-glow primary login" />
+                </div>
+            </div>
+
+            <div class="span4 no-account">
+                <p>没有账户？</p>
+               @Html.ActionLink("读者注册","Register","Readers")
+               @Html.ActionLink("作者注册", "Register", "Writers")
+            </div>
+        </div>
+    </form>
+    <!-- scripts -->
+    <script src="~/登录，注册/js/jquery-latest.js"></script>
+    <script src="~/登录，注册/js/bootstrap.min.js"></script>
+    <script src="~/登录，注册/js/theme.js"></script>
+
+    <!-- pre load bg imgs -->
+    <script type="text/javascript">
+            $(function () {
+                // bg switcher
+                var $btns = $(".bg-switch .bg");
+                $btns.click(function (e) {
+                    e.preventDefault();
+                    $btns.removeClass("active");
+                    $(this).addClass("active");
+                    var bg = $(this).data("img");
+
+                    $("html").css("background-image", "url('~/登录，注册/img/bgs/" + bg + "')");
+                });
+
+            });
+    </script>
+
+</body>
+</html>

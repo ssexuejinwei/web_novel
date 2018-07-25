@@ -1,0 +1,58 @@
+﻿@model WebApplication1.Models.REVIEW
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>REVIEW</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BOOKID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BOOKID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHAPTERID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHAPTERID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CONTENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONTENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REVIEWDATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REVIEWDATE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

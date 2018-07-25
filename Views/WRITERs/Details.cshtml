@@ -1,0 +1,82 @@
+﻿@model WebApplication1.Models.WRITER
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>WRITER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WRITERNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WRITERNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PASSWORD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PASSWORD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WRITERLEVEL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WRITERLEVEL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMPRODUCTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMPRODUCTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMFANS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMFANS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MONTHTICKET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MONTHTICKET)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WRITERID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

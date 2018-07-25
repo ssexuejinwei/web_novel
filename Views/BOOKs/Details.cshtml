@@ -1,0 +1,117 @@
+﻿@model WebApplication1.Models.BOOK
+
+@{
+    ViewBag.Title = "Create";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+    <link rel="stylesheet" href="~/书籍详情/css/detail_css.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/书籍详情/media/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/书籍详情/media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript">
+        function like_confirm() {
+            var l = confirm("是否收藏本书？");
+            if (l == true) {
+                alert("已成功收藏本书！");
+            }
+        }
+        function download_confirm() {
+            var d = confirm("是否下载本书？");
+            if (d == true) {
+                alert("已成功加入下载列表！");
+            }
+        }
+        function money_prompt() {
+            var money = prompt("请输入您的打赏数")
+            if (money != null && money != "") {
+                alert("已成功打赏！");
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="navbar navbar-fixed-top">
+
+        <div class="navbar-inner">
+
+            <div class="container">
+
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+
+                <a class="brand" href="~/首页/index.html"><img src="~/书籍详情/img/logo.png" height="21" width="21" />阅读小说网</a>
+
+                <div class="nav-collapse">
+
+                    <ul class="nav pull-right">
+
+                        <li class="">
+
+                            <a href="~/首页/index.html"> 返回主页</a>
+                        </li>
+                    </ul>
+
+                </div> <!-- /nav-collapse -->
+
+            </div> <!-- /container -->
+
+        </div> <!-- /navbar-inner -->
+
+    </div> <!-- /navbar -->
+    <br><br>
+    <div class="containner">
+        <div class="detail">
+            <div id="img_1">
+                <img src="~/书籍详情/img/detail_1.jpg" alt="detail_1">
+            </div>
+            <div class="content">
+                <a href="~/免费，vip，完本,分类，排行榜/分类—军事历史.html"><span id="tag"><b>军事历史</b></span></a>
+                <br>
+                <h3>我的第一本思维导图入门书</h3>
+                <p id="intro">
+                    <span> <b>作者：</b><a href="/关注页面-作者/index.html" class="name">胡雅茹</a></span><span style="margin-left: 50px"><b>版权方：</b> 北京时代华文书局有限公司</span>
+                    <br>
+                    <span> <b>收藏数：</b>1234</span><span style="margin-left: 50px"><b>下载数：</b> 1234</span><span style="margin-left: 50px"><b>点击量：</b> 1234</span>
+                </p>
+                <h4>图书简介</h4>
+                <p><font size="2">本书从整理、分类、绘制循序渐进的引导你进入全脑思考时代强力技术的思维导图，让所有没接触过心智图的人一看就上手。他可以运用于创意、活动企划、分析、归纳、作文大纲、个人履历、会议简报中。</font></p>
+                <p><font size="2">本书将思维导图归纳为四类并各引用很多实例来说明解释，包括用创造型思维导图在脑力激荡、新产品开发、活动企划，及未来目标的订定；用整理型思维导图做分析、归纳；用提示型思维导图拟订作文的大纲及演讲的提词；用沟通型思维导图做自我介绍及会议简报。本书内容浅显易懂且容易下手练习，在本书的指导下，读者就可以轻松地画出思维导图。</font></p>
+                <div style="padding-top:10px;padding-left: 50px">
+                    <a href="阅读页.html"><span class="button">开始阅读</span></a><a href="#" onclick="like_confirm()"><span class="button">收藏书籍</span></a><a href="#" onclick="download_confirm()"><span class="button">下载书籍</span></a><a href="#" onclick="money_prompt()"><span class="button">打赏</span></a>
+                </div>
+            </div>
+        </div>
+        <h5 id="h_0"></h5>
+        <h5 id="h_1"></h5>
+        <h5 id="h_2"><a href="评论.html"><span class="button">读者互动</span></a><a href="详情页.html"><span class="button">目录</span></a></h5>
+        <div class="catalog">
+            <div class="page-container row-fluid">
+                <ul>
+                    <li class="cap"><span class="title-icon_0"></span>第一部分 思维导图的思考功能</li>
+                    <li><a href="阅读页.html">符合超强记忆的基本原理</a></li>
+                    <li><a href="阅读页.html">符合沟通原理</a></li>
+                    <li><a href="阅读页.html">加速大脑的思考</a></li>
+                    <li><a href="阅读页.html">四个基本思考原则</a></li>
+                    <li class="cap"><span class="title-icon_0"></span>第二部分 画思维导图的要点</li>
+                    <li><a href="阅读页.html">从选择适合自己的笔开始</a></li>
+                    <li><a href="阅读页.html">选一张纸动手画画看吧</a></li>
+                    <li><a href="阅读页.html">画思维导图的步骤示范</a></li>
+                    <li><a href="阅读页.html">构图方式与注意事项</a></li>
+                    <li><a href="阅读页.html">活用色彩增强记忆力</a></li>
+                    <li><a href="阅读页.html">找出关键词</a></li>
+                    <li><a href="阅读页.html">层次分明</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

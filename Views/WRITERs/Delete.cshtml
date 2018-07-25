@@ -1,0 +1,88 @@
+﻿@model WebApplication1.Models.WRITER
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>WRITER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.WRITERNAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WRITERNAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PASSWORD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PASSWORD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WRITERLEVEL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WRITERLEVEL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMPRODUCTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMPRODUCTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NUMFANS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NUMFANS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MONTHTICKET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MONTHTICKET)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

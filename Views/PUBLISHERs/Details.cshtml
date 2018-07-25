@@ -1,0 +1,26 @@
+﻿@model WebApplication1.Models.PUBLISHER
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PUBLISHER</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PUBLISHERLINK)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PUBLISHERLINK)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PUBLISHERNAME }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,15 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    
+</head>
+<body>
+
+    @RenderBody()
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/Script/js")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
