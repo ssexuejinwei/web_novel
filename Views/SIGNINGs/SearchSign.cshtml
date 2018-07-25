@@ -1,0 +1,253 @@
+﻿@model IEnumerable<WebApplication1.Models.SIGNING>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detail Admin - User list</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- bootstrap -->
+    <link href="~/免费，vip，完本,分类，排行榜/css/bootstrap/bootstrap.css" rel="stylesheet" />
+    <link href="~/免费，vip，完本,分类，排行榜/css/bootstrap/bootstrap-responsive.css" rel="stylesheet" />
+    <link href="~/免费，vip，完本,分类，排行榜/css/bootstrap/bootstrap-overrides.css" type="text/css" rel="stylesheet" />
+
+    <!-- global styles -->
+    <link rel="stylesheet" type="text/css" href="~/免费，vip，完本,分类，排行榜/css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="~/免费，vip，完本,分类，排行榜/css/elements.css" />
+    <link rel="stylesheet" type="text/css" href="~/免费，vip，完本,分类，排行榜/css/icons.css" />
+
+    <!-- libraries -->
+    <link href="~/免费，vip，完本,分类，排行榜/css/lib/font-awesome.css" type="text/css" rel="stylesheet" />
+
+    <!-- this page specific styles -->
+    <link rel="stylesheet" href="~/免费，vip，完本,分类，排行榜/css/compiled/user-list.css" type="text/css" media="screen" />
+
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<script type="text/javascript">
+    function like_confirm()
+    {
+        var l=confirm("是否确认签约？");
+        if (l==true)
+        {
+            alert("已签约！");
+        }
+    }
+    function download_confirm()
+    {
+        var d=confirm("是否下载本书？");
+        if (d==true)
+        {
+            alert("已成功加入下载列表！");
+        }
+    }
+    function money_prompt()
+    {
+        var money=prompt("请输入您的打赏数")
+        if (money!=null && money!="")
+        {
+            alert("已成功打赏！");
+        }
+    }
+</script>
+
+
+
+<body style="background-color: #FEDFE1">
+    <form action="~/SIGNINGs/SearchSign" method= "post">
+        @Html.AntiForgeryToken()
+    <!-- navbar -->
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <button type="button" class="btn btn-navbar visible-phone" id="menu-toggler">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <a class="brand" href="../首页/index.html"><img src="../首页/img/logo.png" />阅读小说网</a>
+
+            <ul class="nav pull-right">
+                <li class="hidden-phone">
+                    <input class="search" type="text" />
+                </li>
+                <li class="dropdown">
+                    <a href="../个人主页-读者/index.html" class="dropdown-toggle hidden-phone" data-toggle="dropdown">
+                        个人中心
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../个人主页-读者/index.html">个人中心</a>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <!-- end navbar -->
+    <!-- sidebar -->
+    <div id="sidebar-nav">
+        <ul id="dashboard-menu">
+            <li>
+                <a href="../首页/index.html">
+                    <i class="icon-home"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>排行榜</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="排行榜—人气榜.html" class="active">人气榜</a></li>
+                    <li><a href="排行榜—收藏榜.html" class="active">收藏榜</a></li>
+                    <li><a href="排行榜—下载榜.html" class="active">下载榜</a></li>
+                    <li><a href="排行榜—热销榜.html" class="active">热销榜</a></li>
+                    <li><a href="排行榜—新书榜.html" class="active">新书榜</a></li>
+                    <li><a href="排行榜—完结榜.html" class="active">完结榜</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-edit"></i>
+                    <span>分类</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="submenu">
+                    <li><a href="分类—古代言情.html">古代言情</a></li>
+                    <li><a href="分类—游戏体育.html">游戏体育</a></li>
+                    <li><a href="分类—武侠仙侠.html">武侠仙侠</a></li>
+                    <li><a href="分类—奇幻灵异.html">奇幻灵异</a></li>
+                    <li><a href="分类—军事历史.html">军事历史</a></li>
+                    <li><a href="分类—都市短篇.html">都市短篇</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="免费.html">
+                    <i class="icon-picture"></i>
+                    <span>免费</span>
+                </a>
+            </li>
+            <li>
+                <a href="VIP专区.html">
+                    <i class="icon-calendar-empty"></i>
+                    <span>VIP专区</span>
+                </a>
+            </li>
+            <li>
+                <a href="完本.html">
+                    <i class="icon-th-large"></i>
+                    <span>完本</span>
+                </a>
+            </li>
+            <li>
+                <a href="近期更新.html">
+                    <i class="icon-cog"></i>
+                    <span>近期更新</span>
+                </a>
+            </li>
+            <li class="active">
+                <div class="pointer">
+                    <div class="arrow"></div>
+                    <div class="arrow_border"></div>
+                </div>
+                <a class="dropdown-toggle" href="#">
+                    <i class="icon-group"></i>
+                    <span>签约</span>
+                    <i class="icon-chevron-down"></i>
+                </a>
+                <ul class="active submenu">
+                    <li><a href="签约作者.html" class="active">签约作者</a></li>
+                    <li><a href="搜索出版商.html" class="active">搜索出版商</a></li>
+                    <li><a href="查看公司.html" class="active">查看公司</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!-- end sidebar -->
+    <!-- main container -->
+    <div class="content">
+
+        <div class="container-fluid">
+            <div class="span9">
+                <div class="row">
+                    <div class="span9">
+                        <div class="widget">
+                            <div class="widget-content">
+                                <div class="tabbable">
+                                    <br><br><br><br>
+                                    <div class="tab-content">
+                                        <form id="edit-profile" class="form-horizontal" />
+                                        <fieldset>
+                                            <div class="control-group">
+                                                <label class="control-label" for="firstname">输入公司名:</label>
+                                                <div class="controls">
+                                                
+                                                    <input type="text" name="cname" class="input-medium" id="firstname" /> <button class="btn">搜索</button>
+                                              
+                                                </div> <!-- /controls -->
+                                                <br>
+                                                <br>
+                                                <div class="row-fluid table">
+                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th class="span2 sortable">
+                                                                    作者名
+                                                                </th>
+                                                                <th class="span2 sortable">
+                                                                    签约开始时间
+                                                                </th>
+                                                                <th class="span2 sortable">
+                                                                    签约结束时间
+                                                                </th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="first">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.WRITERID)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.STARTTIME)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ENDTIME)
+                                </td>
+                            </tr>
+
+                        }
+                 
+                        
+      
+
+
+
+                
+
+
+    </tbody>
+                                                    </table>
+                                                    
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                        </form>
+                                    </div>
+                                </div> <!-- /span9 -->
+                                <!-- end main container -->
+                                <!-- scripts -->
+                                <script src="~/免费，vip，完本,分类，排行榜/js/jquery-latest.js"></script>
+                                <script src="~/免费，vip，完本,分类，排行榜/js/bootstrap.min.js"></script>
+                                <script src="~/免费，vip，完本,分类，排行榜/js/theme.js"></script>
+
+</body>
+</html>
