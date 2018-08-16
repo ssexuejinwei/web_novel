@@ -13,7 +13,6 @@ namespace WebApplication1.Controllers
     public class BOOKTAGsController : Controller
     {
         private NovelWeb db = new NovelWeb();
-        
 
         // GET: BOOKTAGs/TAG[功能点20：按编号查书籍标签表]
         public ActionResult SearchID(string bid)

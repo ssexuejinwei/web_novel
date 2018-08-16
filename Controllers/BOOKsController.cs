@@ -7,7 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
-using PagedList;
+
 namespace WebApplication1.Controllers
 {
     public class BOOKsController : Controller
@@ -23,16 +23,10 @@ namespace WebApplication1.Controllers
             List<BOOK> list = Que.ToList();
             return View(list);
         }
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            var books = from d in db.BOOK orderby d.BOOKNAME where d.COLLECTNUM <= 1 select d;
-            int pagesize = 8;
-            int pagenumber = (page ?? 1);
-         
-            
-             return View(books.ToPagedList(pagenumber, pagesize));
-            //IQueryable<BOOK> que = from d in db.BOOK orderby d.COLLECTNUM select d;        //rank
-            //return View(que.ToList());
+            IQueryable<BOOK> que = from d in db.BOOK orderby d.COLLECTNUM select d;        //rank
+            return View(que.ToList());
             /*return View(db.BOOK.ToList());*/
         }
 

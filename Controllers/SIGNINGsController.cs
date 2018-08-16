@@ -21,13 +21,13 @@ namespace WebApplication1.Controllers
         }
 
         //GET:SIGNINGs/Name[功能点21：按名称查签约表]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SearchSign(string cname)
         {
-            cname = Request.Form["cname"];
-            //IQueryable<SIGNING> Que = from q in db.SIGNING where q.NAME == cname select q;
-            //List<SIGNING> list = Que.ToList();
-            //return View(list);
-            return View(db.SIGNING.Where(b => b.NAME.Contains(cname)).ToList());
+            IQueryable<SIGNING> Que = from q in db.SIGNING where q.NAME == "cname" select q;
+            List<SIGNING> list = Que.ToList();
+            return View(list);
         }
         
 
@@ -55,9 +55,8 @@ namespace WebApplication1.Controllers
         // POST: SIGNINGs/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "WRITERID,NAME,STARTTIME,ENDTIME")] SIGNING sIGNING)
         {
             if (ModelState.IsValid)
@@ -66,26 +65,8 @@ namespace WebApplication1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
             return View(sIGNING);
-        }
-
-        //[功能点12：增签约表]
-        public ActionResult CreateSign()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult CreateSign(SIGNING sign)
-        {
-            sign.WRITERID = Request.Form["w_id"];
-            sign.NAME = Request.Form["c_name"];
-            sign.STARTTIME = Request.Form["start"];
-            sign.ENDTIME = Request.Form["end"];
-
-            db.SIGNING.Add(sign);
-            db.SaveChanges();
-
-            return Content("<script>alert('签约成功！')</script>");
         }
 
         // GET: SIGNINGs/Edit/5

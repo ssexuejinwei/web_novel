@@ -19,7 +19,6 @@ namespace WebApplication1.Controllers
         {
             string name = Request.Form["name"];
             IQueryable<READER> list = from d in db.READER where d.READERID == name select d;
-            
             return View(list.ToList());
         }
 
@@ -33,57 +32,30 @@ namespace WebApplication1.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Register(READER user)
         {
-            string first = Request.Form["PASSWORD1"];
-            string second= Request.Form["PASSWORD2"];
-            if(first!=second)
-                return Content("<script>alert('两次密码输入不一致');window.location.href='/Readers/Register';</script>");
-           
-            int max = 0;
-           foreach(var data in db.READER)
+            int ifhave = 0;
+            foreach(var data in db.READER)
             {
-                int a = Convert.ToInt32(data.READERID);
-                if (a > max)
-                    max = a;
+                if (data.READERID == user.READERID)
+                {
+                    ifhave = 1;
+                    break;
+                }
             }
-            max = max + 10;//读者是0结尾
-            int temp = max;
-            int figure=1;
-            for(int i=0;temp!=0 ; i++)
+            if (ifhave == 1)
             {
-                temp = temp/ 10;
-                figure = i;
-             
+                Content("已存在用户名");
+                return View();
             }
-            string add = null;
-            while (figure != -1)
+            else
             {
-                add += '0';
-                figure--;
+                db.READER.Add(user);
+                db.SaveChanges();
+                return Content("<script>alert('成功注册')</script>");
             }
-            
-            user.READERID = add + max.ToString();
-            
-            user.READERNAME = Request.Form["READERNAME"];
-            user.PASSWORD = Request.Form["PASSWORD1"];
-            user.EMAIL = Request.Form["EMAI"];
-            //添加到cookie
-            HttpCookie cookie = new HttpCookie("_userID");
-            cookie.Value = user.READERID;
-            cookie.Expires = DateTime.Now.AddDays(7);
-            Response.Cookies.Add(cookie);
-            
-            //保存到数据库
-            db.READER.Add(user);
-            db.SaveChanges();
-            return Content("<script>alert('注册成功，正在登录...');window.location.href='/Home/Index';</script>");
+            //return RedirectToAction("Index", "Home");
         }
 
-        public ActionResult Index() {
-            string id = Request.Cookies["_userid"].Value;
-            READER reader = db.READER.Find(id);
-            return View(reader);
 
-        }
         // GET: READERs
         [HttpPost]
         [ValidateAntiForgeryToken]

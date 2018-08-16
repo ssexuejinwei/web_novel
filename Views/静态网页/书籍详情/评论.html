@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>详情页</title>
+    <link rel="stylesheet" href="../css/detail_css.css">
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="../media/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../media/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+
+    <link href="../media/css/blog.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript">
+        function disp_prompt()
+        {
+            var reply=prompt("请输入您的回复")
+            if (reply!=null && reply!="")
+            {
+                document.write(reply)
+            }
+        }
+    </script>
+</head>
+<body style="background-color: #FEDFE1">
+<div class="navbar navbar-fixed-top">
+
+    <div class="navbar-inner">
+
+        <div class="container">
+
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand" href="./">阅读小说网</a>
+
+            <div class="nav-collapse">
+
+                <ul class="nav pull-right">
+
+                    <li class="">
+
+                        <a href="javascript:;"> Back to Homepage</a>
+                    </li>
+                </ul>
+
+            </div> <!-- /nav-collapse -->
+
+        </div> <!-- /container -->
+
+    </div> <!-- /navbar-inner -->
+
+</div> <!-- /navbar -->
+<br><br>
+<div class="containner">
+    <div class="detail">
+        <div id="img_1">
+            <img src="../img/detail_1.jpg" alt="detail_1">
+        </div>
+        <div class="content">
+            <span id="tag">书籍类别</span>
+            <br>
+            <h3>我的第一本思维导图入门书</h3>
+            <p id="intro">
+                <span> <b>作者：</b><a href="#">priest</a></span><span style="margin-left: 50px"><b>版权方：</b> 北京时代华文书局有限公司</span>
+                <br>
+                <span> <b>收藏数：</b>1234</span><span style="margin-left: 50px"><b>下载数：</b> 1234</span><span style="margin-left: 50px"><b>点击量：</b> 1234</span>
+            </p>
+            <h4>图书简介</h4>
+            <p><font size="2">本书从整理、分类、绘制循序渐进的引导你进入全脑思考时代强力技术的思维导图，让所有没接触过心智图的人一看就上手。他可以运用于创意、活动企划、分析、归纳、作文大纲、个人履历、会议简报中。</font></p>
+            <p><font size="2">本书将思维导图归纳为四类并各引用很多实例来说明解释，包括用创造型思维导图在脑力激荡、新产品开发、活动企划，及未来目标的订定；用整理型思维导图做分析、归纳；用提示型思维导图拟订作文的大纲及演讲的提词；用沟通型思维导图做自我介绍及会议简报。本书内容浅显易懂且容易下手练习，在本书的指导下，读者就可以轻松地画出思维导图。</font></p>
+            <div style="padding-top:10px;padding-left: 50px">
+                <a href="#"><span class="button">开始阅读</span></a><a href="阅读页.html"><span class="button">收藏书籍</span></a><a href="#"><span class="button">下载书籍</span></a><a href="阅读页.html"><span class="button">打赏</span></a>
+            </div>
+        </div>
+    </div>
+    <h5 id="h_0"></h5>
+    <h5 id="h_1"></h5>
+    <h5 id="h_2"><a href="#"><span class="button">读者互动</span></a><a href="#"><span class="button">目录</span></a></h5>
+
+    <div class="catalog">
+        <h3>请输入评论</h3>
+        <textarea rows="10" cols="150"></textarea>
+        <button type="button" onclick="alert()">提交</button>
+        <div class="page-container row-fluid">
+
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-content">
+
+                <div class="container-fluid">
+
+                    <div class="row-fluid">
+
+                        <div class="span12 blog-page">
+
+                            <div class="row-fluid">
+
+                                <div class="span9 article-block">
+
+                                    <div class="media">
+
+                                        <h2>评论</h2>
+
+                                        <a href="#" class="pull-left">
+
+                                            <img alt="" src="../media/image/9.jpg" class="media-object">
+
+                                        </a>
+
+                                        <div class="media-body">
+
+                                            <h4 class="media-heading">名字 <span>5 hours ago / <a href="#"onclick="disp_prompt()">Reply</a></span></h4>
+
+                                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+                                            <hr>
+
+                                            <!-- Nested media object -->
+
+                                            <div class="media">
+
+                                                <a href="#" class="pull-left">
+
+                                                    <img alt="" src="../media/image/5.jpg" class="media-object">
+
+                                                </a>
+
+                                                <div class="media-body">
+
+                                                    <h4 class="media-heading">名字 <span>17 hours ago / <a href="#" onclick="disp_prompt()">Reply</a></span></h4>
+
+                                                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!--end media-->
+
+                                            <hr>
+
+                                            <div class="media">
+
+                                                <a href="#" class="pull-left">
+
+                                                    <img alt="" src="../media/image/7.jpg" class="media-object">
+
+                                                </a>
+
+                                                <div class="media-body">
+
+                                                    <h4 class="media-heading">名字 <span>2 days ago / <a href="#" onclick="disp_prompt()">Reply</a></span></h4>
+
+                                                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+                                                </div>
+
+                                            </div>
+
+                                            <!--end media-->
+
+                                        </div>
+
+                                    </div>
+
+                                    <!--end media-->
+
+                                    <div class="media">
+
+                                        <a href="#" class="pull-left">
+
+                                            <img alt="" src="../media/image/6.jpg" class="media-object">
+
+                                        </a>
+
+                                        <div class="media-body">
+
+                                            <h4 class="media-heading">名字 <span>July 5,2013 / <a href="#" onclick="disp_prompt()">Reply</a></span></h4>
+
+                                            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+
+                                        </div>
+
+                                    </div>
+
+                                    <!--end media-->
+
+                                    <hr>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- END PAGE CONTENT-->
+
+                </div>
+
+                <!-- END PAGE CONTAINER-->
+
+            </div>
+
+            <!-- END PAGE -->
+
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+
+
+

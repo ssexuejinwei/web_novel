@@ -1,94 +1,81 @@
-﻿
-@model PagedList.IPagedList<WebApplication1.Models.BOOK>
-@using PagedList.Mvc 
+﻿@model IEnumerable<WebApplication1.Models.BOOK>
+
 @{
-    Layout = "";
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<link href="~/Content/PagedList.css" rel="stylesheet" />
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
 <table class="table">
- 
     <tr>
         <th>
-            BOOKNAME
+            @Html.DisplayNameFor(model => model.BOOKNAME)
         </th>
         <th>
-            WRITERID
-           
+            @Html.DisplayNameFor(model => model.WRITERID)
         </th>
         <th>
-            STARTTIME
-           
+            @Html.DisplayNameFor(model => model.STARTTIME)
         </th>
         <th>
-            UPDATETIME
-           
+            @Html.DisplayNameFor(model => model.UPDATETIME)
         </th>
         <th>
-            DOWNLOADNUM
-           
+            @Html.DisplayNameFor(model => model.DOWNLOADNUM)
         </th>
         <th>
-            COLLECTNUM
+            @Html.DisplayNameFor(model => model.COLLECTNUM)
         </th>
         <th>
-            IFEND
+            @Html.DisplayNameFor(model => model.IFEND)
         </th>
         <th>
-            DOWNLOADLINK
+            @Html.DisplayNameFor(model => model.DOWNLOADLINK)
         </th>
         <th>
-            PRICEPERCHAPTER
+            @Html.DisplayNameFor(model => model.PRICEPERCHAPTER)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                
-                @Html.DisplayFor(modelitem => item.BOOKNAME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WRITERID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.STARTTIME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UPDATETIME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DOWNLOADNUM)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.COLLECTNUM)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IFEND)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DOWNLOADLINK)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PRICEPERCHAPTER)
-            </td>
-            @*<td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.BOOKID }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.BOOKID }) |
-                    @Html.RouteLink("下载", new { controller = "DOWNLOADS", Action = "Download", bookid = item.BOOKID })
-                </td>*@
-        </tr>
-    }
-
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BOOKNAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WRITERID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STARTTIME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UPDATETIME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOWNLOADNUM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COLLECTNUM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IFEND)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DOWNLOADLINK)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRICEPERCHAPTER)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.BOOKID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.BOOKID }) |
+            @Html.RouteLink("下载", new { controller = "DOWNLOADS", Action = "Download",bookid=item.BOOKID })
+        </td>
+    </tr>
+}
 
 </table>
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

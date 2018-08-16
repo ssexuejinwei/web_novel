@@ -61,11 +61,9 @@ namespace WebApplication1.Controllers
 
             return Content("<script>alert('收藏成功');window.location.href='/collects/Index';</script>");
         }
-        
-        //展示我的书架
-        public ActionResult Display()
+        // GET: COLLECTs
+        public ActionResult Index()
         {
-            
             return View(db.COLLECT.ToList());
         }
 

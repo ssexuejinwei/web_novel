@@ -15,9 +15,9 @@ namespace WebApplication1.Controllers
         private NovelWeb db = new NovelWeb();
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index()
+        public ActionResult Index(string r_id)
         {
-            string r_id = Request.Cookies["_userid"].Value;
+            r_id = Request.Cookies["_userid"].Value;
             IQueryable<ATTENTION> Que = from d in db.ATTENTION where d.READERID == r_id select d;
             List<ATTENTION> list = Que.ToList();
             return View(list);

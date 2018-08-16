@@ -21,27 +21,6 @@ namespace WebApplication1.Controllers
             List<BROWSEHISTORY> list = Que.ToList();
             return View(list);
         }
-
-        //[功能点10：增浏览历史表]
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult History(string b_id, string c_id)
-        {
-            BROWSEHISTORY bROWSEHISTORY = new BROWSEHISTORY();
-
-            string r_id;
-            r_id = Request.Cookies["_userid"].Value;
-            bROWSEHISTORY.READERID = r_id;
-            bROWSEHISTORY.BOOKID = b_id;
-            bROWSEHISTORY.CHAPTERID = c_id;
-            bROWSEHISTORY.TIME = DateTime.Now.ToString("yyyy-MM-dd");
-
-            db.BROWSEHISTORY.Add(bROWSEHISTORY);
-            db.SaveChanges();
-
-            return View();
-        }
-
         // GET: BROWSEHISTORies
         public ActionResult Index()
         {

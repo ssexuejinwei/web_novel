@@ -18,10 +18,7 @@ namespace WebApplication1.Controllers
         
         public ActionResult _login()
         {
-            Login user = new Login();
-           
-            return View(user);
-      
+            return View();
         }
 
         [HttpPost]
@@ -29,81 +26,68 @@ namespace WebApplication1.Controllers
         public ActionResult _login(Login user)
         {
            
-            if (ModelState.IsValid)
+            int success1 = 0;
+            int success2 = 0;
+            READER temp = new READER();
+            foreach (var data in db.READER)
             {
-               
-                int success1 = 0;
-                int success2 = 0;
-                READER temp = new READER();
-                foreach (var data in db.READER)
+                if (data.READERID == user.ID)
                 {
-                    if (data.READERID == user.ID)
+                    if (data.PASSWORD == user.Password)
+                    {
+                       
+                        temp = data;
+                        success1 = 1;
+                        break;
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Password", "密码错误");
+                        return View();
+                    }
+                }
+            }
+            //在读者表中成功找到对应用户,将id存到cookies里
+            if (success1 == 1)
+            {
+                HttpCookie cookie = new HttpCookie("_userID");
+                cookie.Value = user.ID;
+                cookie.Expires = DateTime.Now.AddDays(7);
+                Response.Cookies.Add(cookie);
+                //ViewBag.myid = Request["temp.READERNAME"];
+                return RedirectToAction("index", "home");
+            }
+            else
+            {
+                foreach (var data in db.WRITER)
+                {
+                    if (data.WRITERID == user.ID)
                     {
                         if (data.PASSWORD == user.Password)
                         {
-
-                            temp = data;
-                            success1 = 1;
+                            success2 = 1;
                             break;
                         }
                         else
                         {
-                            return Content("<script>alert('密码错误');window.location.href='/Login/_login';</script>");
-                           
-                        
+                            ModelState.AddModelError("Password", "密码错误");
+                            return View();
                         }
                     }
                 }
-                //在读者表中成功找到对应用户,将id存到cookies里
-                if (success1 == 1)
+                //在作者表中成功找到用户,将用户id存到cookie中
+                if (success2 == 1)
                 {
                     HttpCookie cookie = new HttpCookie("_userID");
-                    HttpCookie tcookie = new HttpCookie("usertype");
                     cookie.Value = user.ID;
-                    tcookie.Value = "读者";
                     cookie.Expires = DateTime.Now.AddDays(7);
-                    tcookie.Expires = DateTime.Now.AddDays(7);
                     Response.Cookies.Add(cookie);
-                    Response.Cookies.Add(tcookie);
-                    //ViewBag.myid = Request["temp.READERNAME"];
-                    return Content("<script>alert('登陆成功');window.location.href='/Home/homepage';</script>");
+                    //ViewBag.myid = Request[user.ID];
+                    return RedirectToAction("index", "home");
                 }
-                else
-                {
-                    foreach (var data in db.WRITER)
-                    {
-                        if (data.WRITERID == user.ID)
-                        {
-                            if (data.PASSWORD == user.Password)
-                            {
-                                success2 = 1;
-                                break;
-                            }
-                            else
-                            {
-                                return Content("<script>alert('密码错误');window.location.href='/Login/_login';</script>");
-                            }
-                        }
-                    }
-                    //在作者表中成功找到用户,将用户id存到cookie中
-                    if (success2 == 1)
-                    {
-                        HttpCookie cookie = new HttpCookie("_userID");
-                        HttpCookie tcookie = new HttpCookie("usertype");
-                        cookie.Value = user.ID;
-                        tcookie.Value = "作者";
-                        cookie.Expires = DateTime.Now.AddDays(7);
-                        tcookie.Expires = DateTime.Now.AddDays(7);
-                        Response.Cookies.Add(cookie);
-                        Response.Cookies.Add(tcookie);
-                        //ViewBag.myid = Request[user.ID];
-                        return Content("<script>alert('登陆成功');window.location.href='/Home/homepage';</script>");
-                    }
-                }
-                return Content("<script>alert('用户ID不存在');window.location.href='/Login/_login';</script>");
-    
             }
-            return View(user);
+            ModelState.AddModelError("ID", "用户ID不存在");
+            return View();
         }
 
         public ActionResult _exit()
